@@ -3,6 +3,8 @@ const exphbs = require('express-handlebars')
 const path = require('path')
 const port = 3000;
 
+const FileName = path.join(__dirname, 'templates')
+
 const hbs = exphbs.create({
     partialsDir: ['views/partials']
 })
@@ -20,6 +22,8 @@ app.use(
 app.use(
     express.json()
 )
+
+app.use(express.static('public'))
 
 app.get('/post', (req, res) => {
 
