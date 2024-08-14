@@ -3,13 +3,14 @@ const exphbs = require('express-handlebars')
 const app = express()
 const porta = 3000;
 
+
 app.engine('handlebars', exphbs.engine())
 app.set('view engine', 'handlebars')    
 const UsersRouter = require('./userRouter/userRouter')
 
 app.use(
     express.urlencoded({
-        urlencoded: true
+        extended: true,
     })
 )
 app.use(express.json())

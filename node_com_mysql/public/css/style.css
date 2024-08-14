@@ -1,0 +1,109 @@
+.center{
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+header{
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    /* font-weight: 300; */
+    font-style: normal;
+}
+
+
+
+.main_nav  ul{
+    display: flex;
+    justify-content: center;
+    padding: 1em 0;
+}
+
+.main_nav ul li{
+    margin: 0 .7em;
+    list-style-type: none;
+}
+
+.main_nav ul li a{
+   text-decoration: none;
+   font-family: "Poppins", sans-serif;
+   /* font-weight: 300; */
+   font-style: normal;
+}
+
+
+
+.container-form{
+    display: flex;
+    justify-content: center;
+    margin-bottom: .5em;
+    font-family: "Poppins", sans-serif;
+    /* font-weight: 300; */
+    font-style: normal;
+}
+
+.container-form .single-form{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2em
+    
+}
+
+.container-form .single-form input{
+   padding: 8px 10px;
+   font-size: 16px;
+    border: 0;
+    outline: 0;
+    border-radius: 5px;
+}
+
+.single-form label{
+    font-weight:500;
+    margin-bottom: 5px;
+}
+
+#submit > input{
+    /* text-align: left; */
+    /* max-width: 50%;
+    min-width: 60px; */
+    /* width: 160px; */
+    padding: 8px 0px;
+    background-color: #8F8F8F;
+}
+
+.flex-form{
+    background-color: #F5F5F5;
+    width: 400px;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+
+.flex-form h1{
+    font-size: 22px;
+    margin-bottom: 30px;
+    font-family: "Poppins", sans-serif;
+    /* font-weight: 300; */
+    font-style: normal;
+}
+
+/*  listando os usuários */
+.container-users{
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: center; */
+    text-align: center;
+    /* flex-direction: column; */
+    /* width: 300px; */
+   
+}
+
+.single-users{
+    width: 30.3%;
+    background-color: #F5F5F5;
+    margin: 1em;
+    font-family: "Poppins", sans-serif;
+    /* font-weight: 300; */
+    font-style: normal;
+}

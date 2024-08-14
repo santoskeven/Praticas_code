@@ -1,4 +1,14 @@
-sfasdf
-asd
-sdf
-f
+<h1 class="center">lista de usuários do banco de dados</h1>
+
+<div class="container-users"> 
+
+        {{#each users}}
+           <div class="single-users">
+                <p>{{this.id}}</p>
+                <p>{{this.nome}}</p>
+                <p>{{this.email}}</p>
+                <p>{{this.idade}}</p>
+           </div>
+        {{/each}}
+
+</div>
