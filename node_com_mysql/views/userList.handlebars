@@ -8,6 +8,13 @@
                 <p>{{this.nome}}</p>
                 <p>{{this.email}}</p>
                 <p>{{this.idade}}</p>
+
+                <div class="action-user">
+                        <a class="item" href="/users/user-edit/{{this.id}}">EDITAR</a>
+                        <form class="item" action="/users/delete-user/{{this.id}}" method="POST">
+                                <input type="submit" value="EXCLUIR">
+                        </form>
+                </div>
            </div>
         {{/each}}
 

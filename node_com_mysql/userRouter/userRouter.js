@@ -62,15 +62,53 @@ router.post('/add-user', (req, res) => {
 
 })
 
-router.post('/update/:id', (req, res) => {
+router.get('/user-edit/:id', (req, res) => {
 
+    const id = req.params.id
 
+    const query = `SELECT * FROM users WHERE ?? = ?`
+    const data = ['id', id]
+
+    pool.query(query, data, (err, data) => {
+
+        const users = data[0]
+
+        res.render('editUser', {users})
+
+    })
 
 })
 
-router.post('/delete/:id', (req, res) => {
+router.post('/update-user', (req, res) => {
 
+    const id = req.body.id;
+    const nome = req.body.nome;
+    const email = req.body.email;
+    const idade = req.body.idade;
 
+    const query = `UPDATE users SET ?? = ?, ?? = ?, ?? = ? WHERE ?? = ?`
+    const data = ['nome', nome, 'email', email, 'idade', idade, 'id', id]
+
+    pool.query(query, data, (err) => {
+        if(err){
+            console.log(err)
+        }
+        res.redirect('/users/list')
+    })
+
+})
+
+router.post('/delete-user/:id', (req, res) => {
+
+    const id = req.params.id
+
+    const query = "DELETE FROM users WHERE ?? = ?"
+    const data = ['id', id]
+
+    pool.query(query, data, (err) => {
+        if(err){console.log(err)}
+        res.redirect('/users/list')
+    })
 
 })
 

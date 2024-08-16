@@ -1,0 +1,25 @@
+<div class="container-form">
+    
+    <div class="flex-form">
+        <h1>EDITAR DADOS DO USUÁRIO</h1>
+        <form action="/users/update-user" method="POST">
+            <input type="hidden" name="id" value='{{users.id}}'>
+           <div class="single-form">
+                <label for="nome">NOME</label>
+                <input type="text" name="nome" placeholder="Digite seu nome" value='{{users.nome}}'>
+           </div>
+            <div class="single-form">
+                <label for="email">EMAIL</label>
+                <input type="text" name="email" placeholder="Digite seu email" value='{{users.email}}'>
+           </div>
+            <div class="single-form">
+                <label for="idade">IDADE</label>
+                <input type="number" name="idade" placeholder="Digite sua idade" value='{{users.idade}}'>
+           </div>
+            <div class="single-form" id="submit">
+                <input type="submit" value="EDITAR">
+           </div>
+        </form> 
+    </div>
+
+</div>
