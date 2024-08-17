@@ -26,8 +26,6 @@ router.get('/list', (req, res) => {
 
          const users = data
 
-         console.log(users)
-
          res.render('userList', {users})
 
     })
@@ -111,14 +109,5 @@ router.post('/delete-user/:id', (req, res) => {
     })
 
 })
-
-router.get('/users', (req, res) => {
-
-
-
-})
-
-
-
 
 module.exports = router

@@ -107,3 +107,23 @@ header{
     /* font-weight: 300; */
     font-style: normal;
 }
+
+.action-user{
+    display: flex;
+    justify-content: center;
+}
+
+.action-user .item{
+    margin: 5px 6px;
+    padding: 2px 8px;
+    text-decoration: none;
+    color: black;
+    background-color: #8F8F8F;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.item input{
+    border: 0;
+    background-color: #8F8F8F;
+}
