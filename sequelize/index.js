@@ -2,6 +2,7 @@ const exphbs = require('express-handlebars')
 const express = require('express')
 const conn = require('./db/conn')
 const Users = require('./model/Users')
+const Adress = require('./model/Adress')
 const { raw } = require('mysql')
 const { where } = require('sequelize')
 
@@ -96,6 +97,28 @@ app.post('/users/delete-user/:id', async (req, res) => {
 
 })
 
+
+//ADICIONAR ADDRESS
+app.post('/address/create', async (req, res) => {
+
+    const UserId = req.body.UserId;
+    const  street = req.body.street;
+    const number = req.body.number;
+    const city = req.body.city
+
+    const adress = {
+        UserId, 
+        street,
+        number,
+        city
+    }
+
+    await Adress.create(adress)
+
+    res.redirect('/users/list-users')
+
+})
+
 app.get('/', (req, res) => {
 
     res.render('home')
@@ -103,6 +126,7 @@ app.get('/', (req, res) => {
 })
 
 conn.
+// sync({force: true}).
 sync().
 then(() => {
     app.listen(3000)

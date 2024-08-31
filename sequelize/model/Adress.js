@@ -18,7 +18,7 @@ const Adress = db.define('Adress', {
     }
 }) 
 
-.UsershasMany(Adress)
+Users.hasMany(Adress)
 Adress.belongsTo(Users)
 
 module.exports = Adress
