@@ -2,6 +2,8 @@ const exphbs = require('express-handlebars')
 const express = require('express')
 const conn = require('./db/conn')
 const Users = require('./model/Users')
+const { raw } = require('mysql')
+const { where } = require('sequelize')
 
 const app = express()
 
@@ -12,6 +14,8 @@ app.use(express.urlencoded({
     extended: true
 }))
 app.use(express.json())
+
+app.use(express.static('public'))
 
 
 app.get('/users/add-user', (req, res) => {
@@ -46,6 +50,49 @@ app.get('/users/list-users', async (req, res) => {
     const users = await Users.findAll({Users, raw: true})
 
     res.render('listusers', {users})
+
+})
+
+
+//EDITAR USUÁRIO
+app.get('/users/edit-users/:id', async (req, res) => {
+
+    const id = req.params.id;
+
+    const user = await Users.findOne({where: {id : id}, raw: true})
+
+    res.render('editusers', {user})
+})
+
+app.post('/users/update', async (req, res) => {
+    
+    const id = req.body.id;
+    const name = req.body.name;
+    const age = req.body.age;
+    const occupation = req.body.occupation;
+
+    const user = {
+    id,
+    name,
+    age,
+    occupation
+    }   
+
+    await Users.update(user, {where: {id : id}})
+
+    res.redirect('/users/list-users')
+
+
+})
+
+//EXCLUIR USUÁRIO
+app.post('/users/delete-user/:id', async (req, res) => {
+
+    const id = req.params.id
+
+    await Users.destroy({where: {id : id}})
+
+    res.redirect('/users/list-users')
 
 })
 

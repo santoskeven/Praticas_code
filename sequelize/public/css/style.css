@@ -1,0 +1,12 @@
+.container-list-user{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.container-single-user{
+    width: 30.3%;
+     text-align: center;
+     background-color: beige;
+     margin: 1em;
+}

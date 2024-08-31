@@ -1,8 +1,19 @@
 <h1>lista de usuários</h1>
 
-{{#each users}}
-    <p>{{this.id}}</p>    
-    <p>{{this.name}}</p>
-    <p>{{this.age}}</p>
-    <p>{{this.occupation}}</p>
-{{/each}}
+<div class="container-list-user">
+    {{#each users}}
+        <div class="container-single-user">
+            <p>{{this.id}}</p>    
+            <p>{{this.name}}</p>
+            <p>{{this.age}}</p>
+            <p>{{this.occupation}}</p>
+
+            <div>
+                <a href="/users/edit-users/{{this.id}}">EDITAR</a>
+                <form  action="/users/delete-user/{{this.id}}" method="POST">
+                    <input type="submit" value="EXCLUIR">
+                </form>
+            </div>
+        </div>
+    {{/each}}
+</div>
