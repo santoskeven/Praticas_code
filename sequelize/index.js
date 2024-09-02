@@ -48,9 +48,13 @@ app.post('/users/add-users', (req, res) => {
 
 app.get('/users/list-users', async (req, res) => {
 
-    const users = await Users.findAll({Users, raw: true})
+   try{
+    const users = await Users.findAll({include: Adress, Users, raw: true, nest: true})
 
     res.render('listusers', {users})
+   }catch(err){
+    console.log(err)
+   }
 
 })
 
@@ -60,9 +64,12 @@ app.get('/users/edit-users/:id', async (req, res) => {
 
     const id = req.params.id;
 
-    const user = await Users.findOne({where: {id : id}, raw: true})
-
-    res.render('editusers', {user})
+    try{
+        const user = await Users.findOne({include: Adress, where: {id : id}})
+        res.render('editusers', {user : user.get({plain:true})})
+    }catch(err){
+        console.log(err)
+    }
 })
 
 app.post('/users/update', async (req, res) => {
@@ -96,6 +103,20 @@ app.post('/users/delete-user/:id', async (req, res) => {
     res.redirect('/users/list-users')
 
 })
+
+
+// EXCLUIR DADOS RELACIONADOS
+app.post('/users/delete-user/:id', async (req, res) => {
+
+    const id = req.params.id
+
+    await Users.destroy({where: {id : id}})
+
+    res.redirect('/users/list-users')
+
+})
+
+
 
 
 //ADICIONAR ADDRESS

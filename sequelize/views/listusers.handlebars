@@ -8,9 +8,11 @@
             <p>{{this.age}}</p>
             <p>{{this.occupation}}</p>
 
-        <div>
-            <p>{{this.addresses}}</p>
-        </div>
+        {{!-- <div>
+           {{#each users.Adresses}}
+                <p>{{this.id}} - {{this.street}} - {{this.number}} - {{this.city}}</p>
+           {{/each}}
+        </div> --}}
 
             <div>
                 <a href="/users/edit-users/{{this.id}}">EDITAR</a>
