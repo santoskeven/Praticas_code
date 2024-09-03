@@ -116,6 +116,17 @@ app.post('/users/delete-user/:id', async (req, res) => {
 
 })
 
+//EXCLUIR DADOS RELACIONADO ADDRESS
+
+app.post('/address/delete/:id', async (req, res) => {
+
+    const id = req.params.id
+    const UserId = req.body.id
+
+    await Adress.destroy({where : {id : id}})
+
+    res.redirect(`/users/edit-users/${UserId}`)
+})
 
 
 
@@ -136,7 +147,7 @@ app.post('/address/create', async (req, res) => {
 
     await Adress.create(adress)
 
-    res.redirect('/users/list-users')
+    res.redirect(`/users/edit-users/${UserId}`)
 
 })
 

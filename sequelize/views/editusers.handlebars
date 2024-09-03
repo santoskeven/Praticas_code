@@ -41,7 +41,8 @@
 <div>
     {{#each user.Adresses}}
         <p>{{this.id}} - {{this.street}} - {{this.number}} - {{this.city}}</p>
-        <form action="/address/delete">
+        <form action="/address/delete/{{this.id}}" method="POST">
+            <input type="hidden" name="id" value={{this.UserId}}>
             <input type="submit" value="EXCLUIR">
         </form>
     {{/each}}
